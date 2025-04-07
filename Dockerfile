@@ -12,6 +12,9 @@ RUN npm install -g pnpm
 COPY apps/server/package*.json ./
 COPY apps/server/pnpm-lock.yaml ./
 COPY apps/server/prisma ./prisma/
+
+# Ensure the scripts directory exists and copy the scripts
+RUN mkdir -p ./scripts
 COPY apps/server/scripts ./scripts/
 
 # Remove existing prisma node_modules and install dependencies
